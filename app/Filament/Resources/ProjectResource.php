@@ -387,28 +387,17 @@ class ProjectResource extends Resource
                     ->searchable()
                     ->wrap(),
 
-                Tables\Columns\TextColumn::make('vessels_display')
-                    ->label('Kapal Ditugaskan')
-                    ->badge()
-                    ->color('info')
-                    ->wrap(),
-
                 Tables\Columns\TextColumn::make('start_date')
                     ->label('Mulai')
-                    ->date('d/m/Y')
+                    ->date('d M Y')
                     ->sortable()
                     ->placeholder('-'),
 
                 Tables\Columns\TextColumn::make('due_date')
                     ->label('Selesai')
-                    ->date('d/m/Y')
+                    ->date('d M Y')
                     ->sortable()
                     ->placeholder('-'),
-
-                Tables\Columns\TextColumn::make('duration_in_days')
-                    ->label('Durasi')
-                    ->formatStateUsing(fn ($state) => $state ? "{$state} hari" : '-')
-                    ->alignCenter(),
 
                 Tables\Columns\TextColumn::make('status')
                     ->badge()
@@ -432,17 +421,6 @@ class ProjectResource extends Resource
                         'canceled' => '❌ Canceled',
                         default => Str::title($state)
                     }),
-
-                Tables\Columns\IconColumn::make('is_overdue')
-                    ->label('Status Waktu')
-                    ->boolean()
-                    ->trueIcon('heroicon-o-exclamation-triangle')
-                    ->falseIcon('heroicon-o-check-circle')
-                    ->trueColor('danger')
-                    ->falseColor('success')
-                    ->tooltip(fn (Project $record): string => 
-                        $record->is_overdue ? 'Terlambat' : 'Tepat Waktu'
-                    ),
 
                 // Progress Bar
                 ProgressBar::make('bar')

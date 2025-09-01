@@ -90,10 +90,6 @@ class TugBoatResource extends Resource
                     ->badge()
                     ->color('primary'),
 
-                Tables\Columns\TextColumn::make('power_display')
-                    ->label('Daya Mesin')
-                    ->sortable('power')
-                    ->alignCenter(),
 
                 Tables\Columns\TextColumn::make('status')
                     ->label('Status')
@@ -115,12 +111,6 @@ class TugBoatResource extends Resource
                     ->alignCenter()
                     ->badge()
                     ->color('info'),
-
-                Tables\Columns\TextColumn::make('is_available')
-                    ->label('Ketersediaan')
-                    ->badge()
-                    ->formatStateUsing(fn (bool $state): string => $state ? '✅ Tersedia' : '❌ Tidak Tersedia')
-                    ->color(fn (bool $state): string => $state ? 'success' : 'danger'),
 
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Dibuat')
