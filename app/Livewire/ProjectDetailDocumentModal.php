@@ -1040,7 +1040,6 @@ class ProjectDetailDocumentModal extends Component implements HasForms
 
             // Store document info for notification
             $documentName = basename($submission->file_path);
-            $clientName = $this->document->projectStep->project->client->name;
             $projectName = $this->document->projectStep->project->name;
 
             // Delete the file from storage
@@ -1070,7 +1069,7 @@ class ProjectDetailDocumentModal extends Component implements HasForms
         } catch (\Exception $e) {
             Notification::make()
                 ->title('Error')
-                ->body('Failed to remove document. Please try again.')
+                ->body('Failed to remove document. Please try again.' . $e)
                 ->danger()
                 ->send();
         }
