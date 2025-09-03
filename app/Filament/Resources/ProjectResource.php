@@ -495,13 +495,13 @@ class ProjectResource extends Resource
             // Row Actions
             ->actions([
                 Tables\Actions\ActionGroup::make([
-                    ActivitylogAction::make(),
-                    RelationManagerAction::make('project-step-relation-manager')
-                        ->label('Project Step')
-                        ->slideOver()
-                        ->icon('heroicon-o-arrow-path')
-                        ->color('warning')
-                        ->relationManager(StepsRelationManager::make()),
+                    // ActivitylogAction::make(),
+                    // RelationManagerAction::make('project-step-relation-manager')
+                    //     ->label('Project Step')
+                    //     ->slideOver()
+                    //     ->icon('heroicon-o-arrow-path')
+                    //     ->color('warning')
+                    //     ->relationManager(StepsRelationManager::make()),
                     Tables\Actions\ViewAction::make()
                         ->icon('heroicon-o-eye'),
                     Tables\Actions\EditAction::make()
@@ -619,8 +619,8 @@ class ProjectResource extends Resource
     {
         return [
                 //
-            StepsRelationManager::class,
-            ClientRelationManager::class
+            // StepsRelationManager::class,
+            // ClientRelationManager::class
         ];
     }
 
