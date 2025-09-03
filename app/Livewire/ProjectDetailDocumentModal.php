@@ -547,6 +547,7 @@ class ProjectDetailDocumentModal extends Component implements HasForms
             sprintf(
                 "<span style='color: #f59e0b; font-weight: 500;'>%s</span><br><strong>Project:</strong> %s<br><strong>Document:</strong> %s<br><strong>Uploaded by:</strong> %s",
                 $project->name,
+                $this->document->name, // Tambahan argumen yang kurang
                 $this->document->name,
                 auth()->user()->name
             ),
@@ -889,6 +890,7 @@ class ProjectDetailDocumentModal extends Component implements HasForms
                 sprintf(
                     "<span style='color: #f59e0b; font-weight: 500;'>%s</span><br><strong>Document:</strong> %s<br><strong>File:</strong> %s<br><strong>Rejected by:</strong> %s",
                     $this->document->name,
+                    $this->document->name, // Tambahan argumen yang kurang
                     basename($rejectedFilePath), // Using stored file path
                     auth()->user()->name
                 ),
